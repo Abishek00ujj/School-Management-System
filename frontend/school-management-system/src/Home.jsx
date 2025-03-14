@@ -1,8 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Navbar from './components/Navbar'
 const Home = () => {
   return(
     <>
+     <Navbar/>
        <div className='w-screen h-screen space-y-2 bg-[#f8f8f] flex flex-col justify-center items-center'>
          <div>
             <Link to='/adminlogin'>

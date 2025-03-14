@@ -1,7 +1,9 @@
 import React from 'react'
-
+import Navbar from './components/Navbar'
 const AdminLogin = () => {
   return (
+    <>
+    <Navbar/>
     <div className='w-screen h-screen bg-[#f8f8f8] flex justify-center items-center'>
         <div className='bg-blue-950 w-[400px] h-[400px] rounded-2xl flex flex-col items-center space-y-7 justify-center'>
             <div className='flex text-3xl font-serif text-white'>
@@ -20,6 +22,9 @@ const AdminLogin = () => {
             </div>
         </div>
     </div>
+
+    </>
+
   )
 }
 

@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Navbar from './components/Navbar'
+import { Loader } from 'lucide-react';
 const AdminLogin = () => {
+    const emailRef=useRef();
+    const passwordRef=useRef();
+    const [loading,SetLoading]=useState(false);
+
+
+    const submitForm=()=>{
+        SetLoading(true);
+        const DataObj={
+            email:emailRef.current.value,
+            password:passwordRef.current.value
+        }
+        console.log(DataObj);
+    }
   return (
     <>
     <Navbar/>
@@ -9,18 +23,30 @@ const AdminLogin = () => {
             <div className='flex text-3xl font-serif text-white'>
                   Admin Login
             </div>
-            <div className=' bg-white w-[70%] h-[10%] rounded-2xl'>
-                <input type="text" className='font-bold text-gray-500 rounded-2xl w-full h-full' placeholder='Enter your Email' />
+            <div className='bg-white w-[70%] h-[10%] rounded-2xl'>
+                <input ref={emailRef} type="text" className='font-bold text-gray-500 rounded-2xl w-full h-full' placeholder='Enter your Email' />
             </div>
             <div className=' bg-white w-[70%] h-[10%] rounded-2xl'>
-                <input type="text" className='font-bold text-gray-500 rounded-2xl w-full h-full' placeholder='Enter your Password' />
+                <input ref={passwordRef} type="text" className='font-bold text-gray-500 rounded-2xl w-full h-full' placeholder='Enter your Password' />
             </div>
             <div className=' bg-green-500 w-[70%] h-[10%] rounded-2xl'>
-                <button className='font-bold rounded-2xl w-full h-full'>
-                    Login
+                <button onClick={submitForm} className='font-bold rounded-2xl w-full h-full flex justify-center items-center'>
+                    {
+                        !loading?(
+                            <>
+                              <Loader className='animate-spin'/>
+                            </>
+                        ):(
+                           <>
+                              Login
+                           </>
+                        )
+                    }
+                
                 </button>
             </div>
         </div>
+
     </div>
 
     </>

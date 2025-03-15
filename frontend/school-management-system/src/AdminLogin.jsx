@@ -6,6 +6,10 @@ const AdminLogin = () => {
     const passwordRef=useRef();
     const [loading,SetLoading]=useState(false);
 
+    
+
+    const [redirect,Setredirect]=useState(false);
+
 
     const submitForm=()=>{
         SetLoading(true);
@@ -13,8 +17,24 @@ const AdminLogin = () => {
             email:emailRef.current.value,
             password:passwordRef.current.value
         }
+
+        Evaluate(DataObj);
         console.log(DataObj);
     }
+
+    const Evaluate=(DataObj)=>{
+        const {email,password}=DataObj;
+        if(email=="admin" && password=="admin")
+        {
+            Setredirect(true);
+        }
+    }
+
+    if(redirect)
+    {
+
+    }
+
   return (
     <>
     <Navbar/>
